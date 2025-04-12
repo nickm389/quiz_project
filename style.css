@@ -1,0 +1,81 @@
+body {
+    background-color: black;
+    color: black;
+}
+
+.card {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+}
+
+.btn-primary {
+    background-color: black;
+    border-color: black;
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: grey;
+    border-color: grey;
+    color: black;
+}
+
+.btn-outline-primary {
+    color: grey;
+    border-color: grey;
+}
+
+.btn-outline-primary:hover {
+    background-color: grey;
+    color: black;
+    border-color: grey;
+}
+
+.alert-success {
+    background-color: grey;
+    border-color: grey;
+    color: black;
+}
+
+.alert-danger {
+    background-color: grey;
+    border-color: grey;
+    color: black;
+}
+
+select{
+    background-color: black;
+    border: 1px solid grey;
+    color: black;
+}
+
+
+input {
+    background-color: black;
+    border: 1px solid grey;
+    color: black;
+}
+
+select:focus,
+input:focus {
+    box-shadow: 0 0 0 0.2rem grey;
+    border-color: grey;
+    background-color: black;
+    color: black;
+}
+
+h4{
+    color: black;
+}
+
+.question-text{
+    color: black;
+}
+
+.quiz-question-text {
+    color: black;
+}
+
+
