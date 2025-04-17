@@ -41,7 +41,7 @@ async function fetch_question(number) {
 function next_question() {
     if (quiz_data.currentQuestion >= quiz_data.total) {
         end_quiz()
-        return
+        return false
     }
 
     fetch_question(quiz_data.currentQuestion).then(function (question) {
