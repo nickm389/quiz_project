@@ -25,7 +25,7 @@ function start_quiz() {
         quiz_data.score = 0
         quiz_data.startTime = Date.now()
         quiz_data.total = 5
-        loadNextQuestion()
+        next_question()
     })
 }
 
@@ -38,10 +38,10 @@ async function fetch_question(number) {
 }
 
 
-function loadNextQuestion() {
+function next_question() {
     if (quiz_data.currentQuestion >= quiz_data.total) {
         end_quiz()
-        return false
+        return
     }
 
     fetch_question(quiz_data.currentQuestion).then(function (question) {
@@ -53,14 +53,16 @@ function loadNextQuestion() {
             question: question
         })
 
-        document.querySelectorAll(".answer-btn").forEach(function (btn) {
+        var buttons = document.querySelectorAll(".answer-btn")
+        buttons.forEach(function (btn) {
             btn.addEventListener("click", function () {
-                var correct_answer = btn.dataset.correct === "true"
-                handle_answer(correct_answer)
+                var correct = btn.dataset.correct === "true"
+                handle_answer(correct)
             })
         })
     })
 }
+
 
 function handle_answer(correct) {
     var explanations = {
@@ -116,7 +118,7 @@ function handle_answer(correct) {
             message: "Good Job!" })
         setTimeout(function () {
             quiz_data.currentQuestion =  quiz_data.currentQuestion + 1
-            loadNextQuestion()
+            next_question()
         }, 1000)
     } 
     else {
@@ -130,7 +132,7 @@ function handle_answer(correct) {
             if (nextBtn) {
                 nextBtn.addEventListener("click", function () {
                     quiz_data.currentQuestion =  quiz_data.currentQuestion + 1
-                    loadNextQuestion()
+                    next_question()
                 })
             }
         }, 100)
